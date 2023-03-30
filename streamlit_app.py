@@ -1,36 +1,32 @@
 # Import necessary packages and functions
 import streamlit as st
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
-from sklearn.neighbors import GradientBoostingClassifier
+import pickle
 
 # Load the trained model
-model = GradientBoostingClassifier()
-model.load('model.pkl')
+model = pickle.load(open('model.pkl','rb'))
 
-
-# Define the Streamlit app
-@st.cache
-def run_app():
-    # Add a title to the app
-    st.title('Job Category Predictor')
+# Add a title to the app
+st.title('Data Engineer :male-technologist: Data Analyst :technologist:')
     
-    # Add a sidebar for user input
-    with st.sidebar:
-        st.subheader('Enter job description:')
-        description = st.text_input('Description')
+# Set input widgets
+st.sidebar.subheader('Select your skill set')
+r1 = st.radio("Tableau", ('Yes', 'No'))
+r2 = st.radio("Tableau", ('Yes', 'No'))
+
         
-    # Use the trained model to make a prediction
-    if st.button('Predict'):
-        # Preprocess the user input
-        scaler = StandardScaler()
-        x = scaler.fit_transform(description)
+# Use the trained model to make a prediction
+if st.button('Predict'):
+    # Preprocess the user input
+    skill_list = []
+    if r1 == 'Yes':
+        skill_list.append(1)
+    else:
+        skill_list.append(0)
+    
+    # Make the prediction
+    prediction = model.predict(skill_list)
+    
+    # Display the results to the user
+    st.write(f'The predicted job category is: {prediction}')
         
-        # Make the prediction
-        prediction = model.predict(x)
-        
-        # Display the results to the user
-        st.write(f'The predicted job category is: {prediction}')
-        
-# Run the app
-run_app()
