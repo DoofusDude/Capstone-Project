@@ -6,6 +6,9 @@ import pickle
 # Load the trained model
 model = pickle.load(open('model.pkl','rb'))
 
+# Set Page configuration
+st.set_page_config(page_title='Job Predictor', page_icon='🌷', layout='wide', initial_sidebar_state='expanded')
+
 # Add a title to the app
 st.title('Data Engineer :male-technologist: Data Analyst :technologist:')
     
