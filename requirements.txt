@@ -1,0 +1,5 @@
+pickleshare
+streamlit
+scikit-learn
+pandas
+numpy
