@@ -15,18 +15,18 @@ r1 = st.radio("Tableau", ('Yes', 'No'))
 r2 = st.radio("Tableau", ('Yes', 'No'))
 
         
-# Use the trained model to make a prediction
-if st.button('Predict'):
-    # Preprocess the user input
-    skill_list = []
-    if r1 == 'Yes':
-        skill_list.append(1)
-    else:
-        skill_list.append(0)
+# # Use the trained model to make a prediction
+# if st.button('Predict'):
+#     # Preprocess the user input
+#     skill_list = []
+#     if r1 == 'Yes':
+#         skill_list.append(1)
+#     else:
+#         skill_list.append(0)
     
-    # Make the prediction
-    prediction = model.predict(skill_list)
+#     # Make the prediction
+#     prediction = model.predict(skill_list)
     
-    # Display the results to the user
-    st.write(f'The predicted job category is: {prediction}')
+#     # Display the results to the user
+#     st.write(f'The predicted job category is: {prediction}')
         
