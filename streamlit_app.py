@@ -1,7 +1,8 @@
 # Import necessary packages and functions
 import streamlit as st
 import pandas as pd
-import pickle
+import numpy as np
+# import pickle
 
 # Load the trained model
 model = pickle.load(open('model.pkl','rb'))
